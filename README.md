@@ -82,7 +82,7 @@ sudo -E $KERNEL_BUILD/scripts/sign-file sha256 /var/lib/shim-signed/mok/MOK.priv
 Die Datei „[Modul].ko“ muss in dem Verzeichnis liegen, in dem Sie die Zeilen ausführen.
 
 ## Treiber für DKMS anpassen
-Auf dieser Seite finden Sie als Beispiel den Ordner „sample-module-1.1.1“, den Sie nach „/usr/src“ kopieren. Danach führt man die drei Zeilen aus:
+Auf dieser Seite finden Sie als Beispiel den Ordner „sample-module-1.1.1“, den Sie nach „/usr/src“ kopieren (Download über "Code -> Download ZIP"). Danach führt man die drei Zeilen aus:
 ```
 sudo dkms add sample-module/1.1.1
 sudo dkms build sample-module/1.1.1
