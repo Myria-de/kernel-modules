@@ -100,7 +100,13 @@ lässt sich der Treiber wieder entfernen.
 
 „Makefile“ und „dkms.conf“ des Demo-Treibers enthält einige Komfortfunktionen.
 
-Das Makefile erstellt nach Aufruf von "make" alleine nur das Modul. Mit "make sign" lässt es sich digigat signieren, wenn Secure Boot aktiviert ist.
+Das Makefile erstellt nach Aufruf von "make" alleine nur das Modul. Mit "make sign" lässt es sich digigal signieren, wenn Secure Boot aktiviert ist.
+
+Die Abfrage 
+```
+SIG_MOK	:=	$(shell mokutil --sb-state 2>/dev/null || echo "(unknown)")
+```
+ermittelt den Secure-Boot-Status.
 
 "make modules_install" installiert das Modul und signiert es, wenn Secure Boot aktiviert ist.
 
@@ -108,9 +114,9 @@ Das Makefile erstellt nach Aufruf von "make" alleine nur das Modul. Mit "make si
 ```
 MAKE[0]="'make' all TARGET=${kernelver}"
 ```
-für den aktuellen Kernel. Das dient nur der Demonstration, weil Makefile die Version des laufenden Kernels ohnehin ermittelt, wenn "TARGET" nicht angegeben ist.
+für den aktuellen Kernel. Das dient nur der Demonstration, weil "Makefile" die Version des laufenden Kernels ohnehin ermittelt, wenn "TARGET" nicht angegeben ist.
 
-Die Optioon 
+Die Option 
 ```
 AUTOINSTALL="yes"
 ```
