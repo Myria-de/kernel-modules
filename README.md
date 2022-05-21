@@ -97,4 +97,27 @@ ausgeben lässt. Über die Befehlszeile
 sudo dkms remove sample-module/1.1.1 --all
 ```
 lässt sich der Treiber wieder entfernen.
-„Makefile“ und „dkms.conf“ des Demo-Treibers enthält einige Komfortfunktionen, die Sie der Beschreibung auf https://m6u.de/KNMD entnehmen und als Vorlage für andere Treiber verwenden können.
+
+„Makefile“ und „dkms.conf“ des Demo-Treibers enthält einige Komfortfunktionen.
+
+Das Makefile erstellt nach Aufruf von "make" alleine nur das Modul. Mit "make sign" lässt es sich digigat signieren, wenn Secure Boot aktiviert ist.
+
+"make modules_install" installiert das Modul und signiert es, wenn Secure Boot aktiviert ist.
+
+"dkms.conf" erstellt das Modul mit 
+```
+MAKE[0]="'make' all TARGET=${kernelver}"
+```
+für den aktuellen Kernel. Das dient nur der Demonstration, weil Makefile die Version des laufenden Kernels ohnehin ermittelt, wenn "TARGET" nicht angegeben ist.
+
+Die Optioon 
+```
+AUTOINSTALL="yes"
+```
+sorgt dafür, das dass Modul automatisch für neuere Kernel erstellt wird.
+
+
+
+
+
+
